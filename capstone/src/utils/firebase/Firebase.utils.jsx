@@ -46,4 +46,23 @@ const firebaseConfig = {
     const userSnapshot = await getDoc(userDocRef);
     console.log('usersnapshot', userSnapshot);
     console.log('usersnapshot', userSnapshot.exists());
+
+
+    if(!userSnapshot.exists()){
+        const {displayName, email} = userAuth;
+        const createdAt = new Date();
+
+        try{
+            await setDoc(userDocRef, {
+                displayName,
+                email,
+                createdAt
+            })
+        } catch(error) {
+            console.log('errorrrrr while creating the user', error.message)
+        }
+    }
+
+    return userDocRef;
 }
+
