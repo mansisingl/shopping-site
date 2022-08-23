@@ -6,6 +6,15 @@ import {
     GoogleAuthProvider 
 } from 'firebase/auth'
 
+import { getDoc, 
+    setDoc, 
+    getFirestore, 
+    doc 
+} from 'firebase/firestore'
+
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBSs0jQqoQdXURc2JOTp73W1B_3Q4ctbzg",
     authDomain: "capstone-full-da99b.firebaseapp.com",
@@ -26,3 +35,15 @@ const firebaseConfig = {
 
   export const auth = getAuth();
   export const googleSignInWithPopup = () => signInWithPopup(auth, googleProvider);
+
+  export const db = getFirestore();
+
+  export const createUserDocFromAuth = async (userAuth) => {
+    const userDocRef = doc(db, 'users', userAuth.uid)
+
+    console.log('userDocRef', userDocRef)
+
+    const userSnapshot = await getDoc(userDocRef);
+    console.log('usersnapshot', userSnapshot);
+    console.log('usersnapshot', userSnapshot.exists());
+}
