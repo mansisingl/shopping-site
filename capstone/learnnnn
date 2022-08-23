@@ -1,0 +1,30 @@
+
+<Route path='/' element={<Navbar/>}>
+        <Route index element={<Home/>}/>
+        <Route path='shop' element={<Shop/>}/>
+      </Route>
+
+<Link className='nav-link' to='/shop'>SHOP</Link>
+
+
+
+
+
+import { ReactComponent as CrownLogo } from '../../assets/crwn.svg';
+
+<CrownLogo className='logo'/>
+
+
+a{
+    text-decoration: none;
+    color: black;
+  }
+
+  for all the link tags
+
+
+child in routes => without / and use outlet in parent
+
+
+
+
