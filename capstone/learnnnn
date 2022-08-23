@@ -1,3 +1,6 @@
+git add -A
+git commit -m""
+git push --set-upstream origin lesson-2
 
 <Route path='/' element={<Navbar/>}>
         <Route index element={<Home/>}/>
