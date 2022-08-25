@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Navigation.scss';
 import { Link, Outlet } from 'react-router-dom'
 import { ReactComponent as CrownLogo } from '../../assets/crwn.svg';
+import { UserContext } from '../../context/UserContext';
 const Navbar = () => {
+    const {currentUser} = useContext(UserContext)
+    console.log('currentUser', currentUser)
   return (
     <>
         <div className='navigation'>
