@@ -43,3 +43,7 @@ const Button = ({children, buttonType, ...otherProps}) => {
   )
 }
 
+
+
+if a file uses context value and doesn't change the value its gonna rerender the page everytime.
+even if the value doesn't change at all.
