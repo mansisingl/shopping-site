@@ -50,19 +50,24 @@ const SignInWithGooglePopup = async () => {
     }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        
-        try{
-          const response = await signInAuthUserWithEmailAndPassword(email, password);
-          console.log('sign in method' ,response)
-            resetFormFields();
-        } catch(error) {
-          if(error.code === 'auth/user-not-found'){
-            alert('user is not registered')
-          }else{
-            console.log('error in creating the user', error)
+      event.preventDefault();
+      
+      try{
+        const response = await signInAuthUserWithEmailAndPassword(email, password);
+        console.log('sign in method' ,response)
+          resetFormFields();
+      }catch(error){
+          switch(error.code){
+            case 'auth/wrong-password':
+              alert('wrong password')
+              break;
+            case 'auth/user-not-found':
+              alert('user is not registered')
+              break;
+            default:
+            console.log(error)
           }
-          } 
+        }
     }
 
 
@@ -77,8 +82,8 @@ const SignInWithGooglePopup = async () => {
         <FormInput label='password' type='password' required onChange={handleChange} name='password' value={password} />
         <div className='buttons-container'>
         <Button type='submit'>Sign In</Button>
-        <Button buttonType='google' onClick={SignInWithGooglePopup}>popup</Button>
-        <Button buttonType='google' onClick={googleSignInWithRedirect}>redirect</Button>
+        <Button type='button' buttonType='google' onClick={SignInWithGooglePopup}>popup</Button>
+        <Button type='button' buttonType='google' onClick={googleSignInWithRedirect}>redirect</Button>
         </div>
         </form>
     </div>
