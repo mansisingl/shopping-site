@@ -4,6 +4,8 @@ import { Link, Outlet } from 'react-router-dom'
 import { ReactComponent as CrownLogo } from '../../assets/crwn.svg';
 import { UserContext } from '../../context/UserContext';
 import { signOutUser } from '../../utils/firebase/Firebase.utils';
+import CartIcon from '../../components/cart-icon/CartIcon';
+import CartDropDown from '../../components/cart dropdown/CartDropDown';
 
 
 const Navbar = () => {
@@ -24,11 +26,11 @@ const Navbar = () => {
                 ) : (
                     <Link className='nav-link' to='/authentication'>SIGN IN</Link>
                 )}
+                <CartIcon/>
             </div>  
+            <CartDropDown/>
         </div>
-        <div>
-            <Outlet/>
-        </div>
+        <Outlet/>
     </>
   )
 }
