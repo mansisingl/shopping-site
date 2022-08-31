@@ -47,3 +47,11 @@ const Button = ({children, buttonType, ...otherProps}) => {
 
 if a file uses context value and doesn't change the value its gonna rerender the page everytime.
 even if the value doesn't change at all.
+
+
+usequery
+react-router-dom
+usestate,useeffect,useref
+usecontext, reducer
+firebase auth and storing data
+github
