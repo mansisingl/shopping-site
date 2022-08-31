@@ -1,5 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react'
-import { UserContext } from '../../context/UserContext';
+import React, {useEffect, useState} from 'react'
 import { auth, 
   googleSignInWithPopup, 
   createUserDocFromAuth, 
@@ -23,7 +22,6 @@ const SignIn = () => {
         if(response){
           const userDocRef = await createUserDocFromAuth(response.user);
         }
-        setCurrentUser(response.user);
           resetFormFields();
         // console.log("sign in with redirect", response);
       };
@@ -33,9 +31,7 @@ const SignIn = () => {
       }, []);
 
 const SignInWithGooglePopup = async () => {
-    const {user} = await googleSignInWithPopup()
-    await createUserDocFromAuth(user);
-    setCurrentUser(user);
+   await googleSignInWithPopup()
     resetFormFields();
 }
 
@@ -43,8 +39,6 @@ const SignInWithGooglePopup = async () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
-
-    const {setCurrentUser} = useContext(UserContext)
 
 
     const handleChange = (event) => {
@@ -62,7 +56,7 @@ const SignInWithGooglePopup = async () => {
       
       try{
         const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-        setCurrentUser(user);
+        
           resetFormFields();
       }catch(error){
           switch(error.code){
