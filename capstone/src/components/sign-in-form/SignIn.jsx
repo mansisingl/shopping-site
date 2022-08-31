@@ -23,6 +23,8 @@ const SignIn = () => {
         if(response){
           const userDocRef = await createUserDocFromAuth(response.user);
         }
+        setCurrentUser(response.user);
+          resetFormFields();
         // console.log("sign in with redirect", response);
       };
     
@@ -33,6 +35,8 @@ const SignIn = () => {
 const SignInWithGooglePopup = async () => {
     const {user} = await googleSignInWithPopup()
     await createUserDocFromAuth(user);
+    setCurrentUser(user);
+    resetFormFields();
 }
 
 
