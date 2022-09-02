@@ -10,7 +10,7 @@ git push --set-upstream origin lesson-2
 <Link className='nav-link' to='/shop'>SHOP</Link>
 
 
-
+_rfce
 
 
 import { ReactComponent as CrownLogo } from '../../assets/crwn.svg';
