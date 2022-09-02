@@ -105,10 +105,16 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     // console.log('done')
 };
 
-// export const getCollectionAndDocuments = async () => {
-//     const collectionRef = collection(db, 'categories')
-//     const q = query(collectionRef);
+export const getCollectionAndDocuments = async () => {
+    const collectionRef = collection(db, 'categoriess')
+    const q = query(collectionRef);
 
-//     const querySnapshot = await getDocs(q);
-//     queryShopshot.docs
-// }
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const {title, items} = docSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {})
+
+    return categoryMap;
+}
