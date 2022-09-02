@@ -13,7 +13,11 @@ import {
 import { getDoc, 
     setDoc, 
     getFirestore, 
-    doc 
+    doc,
+    collection,
+    writeBatch,
+    query,
+    getDocs
 } from 'firebase/firestore'
 
 
@@ -84,3 +88,27 @@ export const signOutUser = async () => await signOut(auth);
 
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = collection(db, collectionKey);
+
+    const batch = writeBatch(db);
+
+    objectsToAdd.forEach((object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+        batch.set(docRef, object);
+    })
+
+    await batch.commit();
+    // console.log('done')
+};
+
+// export const getCollectionAndDocuments = async () => {
+//     const collectionRef = collection(db, 'categories')
+//     const q = query(collectionRef);
+
+//     const querySnapshot = await getDocs(q);
+//     queryShopshot.docs
+// }
