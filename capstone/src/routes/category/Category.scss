@@ -1,0 +1,6 @@
+.category-container{
+    display: grid;
+    row-gap: 50px;
+    column-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
