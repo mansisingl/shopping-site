@@ -5,7 +5,7 @@ import { addCollectionAndDocuments, getCollectionAndDocuments } from "../utils/f
 
 export const CategoriesContext = createContext({
     categoriesMap: {},
-});
+}); 
 
 
 export const CategoriesProvider = ({children}) => {

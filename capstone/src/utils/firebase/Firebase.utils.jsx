@@ -24,12 +24,12 @@ import { getDoc,
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBSs0jQqoQdXURc2JOTp73W1B_3Q4ctbzg",
-    authDomain: "capstone-full-da99b.firebaseapp.com",
-    projectId: "capstone-full-da99b",
-    storageBucket: "capstone-full-da99b.appspot.com",
-    messagingSenderId: "1236063184",
-    appId: "1:1236063184:web:135d35fe956c58264a5fd5"
+    apiKey: "AIzaSyCqkjxr-jHdZJsFglpjvbWGgt6iSvUkaGM",
+    authDomain: "capstone-last.firebaseapp.com",
+    projectId: "capstone-last",
+    storageBucket: "capstone-last.appspot.com",
+    messagingSenderId: "663583698090",
+    appId: "1:663583698090:web:ef923802e1b47770f974d3"
   };
   
   // Initialize Firebase
