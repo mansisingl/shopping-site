@@ -5,7 +5,7 @@ import { auth,
   googleSignInWithRedirect,
   signInAuthUserWithEmailAndPassword} from '../../utils/firebase/Firebase.utils';
 import FormInput from '../form-input/FormInput';
-import Button from '../button/Button';
+import Button, {BUTTON_TYPES_CLASSES} from '../button/Button';
 import './SignIn.scss';
 import { getRedirectResult } from 'firebase/auth';
 
@@ -84,8 +84,8 @@ const SignInWithGooglePopup = async () => {
         <FormInput label='password' type='password' required onChange={handleChange} name='password' value={password} />
         <div className='buttons-container'>
         <Button type='submit'>Sign In</Button>
-        <Button type='button' buttonType='google' onClick={SignInWithGooglePopup}>popup</Button>
-        <Button type='button' buttonType='google' onClick={googleSignInWithRedirect}>redirect</Button>
+        <Button type='button' buttonType={BUTTON_TYPES_CLASSES.google} onClick={SignInWithGooglePopup}>popup</Button>
+        <Button type='button' buttonType={BUTTON_TYPES_CLASSES.google} onClick={googleSignInWithRedirect}>redirect</Button>
         </div>
         </form>
     </div>
