@@ -1,7 +1,7 @@
 import React from 'react'
 import {Input, Group, FormInputLabel} from './FormInput.styled';
 
-const FormInput = ({label, ... otherProps}) => {
+const FormInput = ({label, ...otherProps}) => {
   return (
     <Group>
         <Input {...otherProps}/>
