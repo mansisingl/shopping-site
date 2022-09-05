@@ -1,5 +1,4 @@
-import {ProductCardContainer} from './ProductCard.styled';
-
+import './ProductCard.scss';
 import React, { useContext } from 'react'
 import Button, {BUTTON_TYPES_CLASSES} from '../components/button/Button';
 import { CartContext } from '../context/CartContext';

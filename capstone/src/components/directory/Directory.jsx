@@ -39,5 +39,5 @@ import './Directory.scss';
     )
   }
   
-  export default Directory
+  export default Directory;
   

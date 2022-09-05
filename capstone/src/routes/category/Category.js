@@ -16,7 +16,7 @@ const Category = () => {
 
   return (
     <div>
-        <CategoryTitle>{category}</CategoryTitle>
+        <CategoryTitle >{category}</CategoryTitle>
         <CategoryContainer>
         { products &&
             products.map((product) => {
