@@ -26,3 +26,6 @@ const firebaseConfig = {
 
   export const auth = getAuth();
   export const googleSignInWithPopup = () => signInWithPopup(auth, googleProvider);
+
+
+  {/*trying if code is uploading on github*/}
