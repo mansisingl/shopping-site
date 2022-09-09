@@ -7,13 +7,13 @@ import {
 } from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBSs0jQqoQdXURc2JOTp73W1B_3Q4ctbzg",
-    authDomain: "capstone-full-da99b.firebaseapp.com",
-    projectId: "capstone-full-da99b",
-    storageBucket: "capstone-full-da99b.appspot.com",
-    messagingSenderId: "1236063184",
-    appId: "1:1236063184:web:135d35fe956c58264a5fd5"
-  };
+  apiKey: "AIzaSyDMoywodb3STshz8wMbC4a3kK9GrlpnS9E",
+  authDomain: "ecommerce-db-a5d09.firebaseapp.com",
+  projectId: "ecommerce-db-a5d09",
+  storageBucket: "ecommerce-db-a5d09.appspot.com",
+  messagingSenderId: "721403023866",
+  appId: "1:721403023866:web:43682be3c6d4316f6cd443"
+};
   
   // Initialize Firebase
   const firebaseApp = initializeApp(firebaseConfig);
