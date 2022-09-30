@@ -31,7 +31,10 @@ const SignUp = () => {
         }
 
         try{
-            const {user} = await createAuthUserWithEmailAndPassword(email,password);
+            const {user} = await createAuthUserWithEmailAndPassword(
+              email,
+              password
+              );
            // console.log(response);
             await createUserDocumentFromAuth(user,{displayName});
             resetFormFields();
@@ -44,7 +47,7 @@ const SignUp = () => {
             }
         }
 
-    }
+     }
      
     const handleChange = (event) => {
         const {name, value} = event.target;

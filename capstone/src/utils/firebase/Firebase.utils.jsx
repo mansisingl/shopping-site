@@ -4,7 +4,10 @@ import {
     signInWithRedirect, 
     signInWithPopup, 
     GoogleAuthProvider ,
-    createUserWithEmailAndPassword
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
 } from 'firebase/auth'
 import{
 getFirestore,
@@ -32,13 +35,13 @@ const firebaseConfig = {
   });
 
   export const auth = getAuth();
-  export const googleSignInWithPopup = () => signInWithPopup(auth, googleProvider);
+  export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
   export const signInWithGoogleRedirect = () => signInWithRedirect(auth,googleProvider);
 
 export const db = getFirestore();
 export const createUserDocumentFromAuth = async (
   userAuth,
-  additionalInformation={displayName: ''}
+  additionalInformation={}
   ) => {
   if( !userAuth) return;
   const userDocRef =doc(db, 'users', userAuth.uid);
@@ -52,7 +55,7 @@ export const createUserDocumentFromAuth = async (
   if(!userSnapshot.exists()){
     const {displayName, email} = userAuth;
     const createdAt = new Date();
-    try{
+    try{ 
       await setDoc(userDocRef, {
         displayName,
         email,createdAt,
@@ -73,5 +76,14 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth,email,password);
 } ;
 
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if(!email || !password) return;
 
-  {/*trying if code is uploading on github*/}
+  return await signInWithEmailAndPassword(auth,email,password);
+ } ;
+
+ export const signOutUser = async () => await signOut(auth);
+
+
+ export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+  {/*trying if code is uploading on github*/} 
